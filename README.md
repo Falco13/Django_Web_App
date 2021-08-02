@@ -12,7 +12,7 @@
 __Так же добавлены API end-points:__
 - api/posts
 - api/users
-- api/users/<id>
+- api/users/id
 
 
 __Used tools:__    
