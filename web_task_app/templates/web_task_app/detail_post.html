@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ post_item.theme }}
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="media">
+                <div class="media-body">
+                    {% if post_item.photo %}
+                    <img src="{{ post_item.photo.url }}" alt="" width="200px" class="mr-3">
+                    {% else %}
+                    <img src="https://ucarecdn.com/2c4f81e4-d18c-4aec-aa63-3994c554f1ea/"
+                         alt="" class="mr-3">
+                    {% endif %}
+                </div>
+            </div>
+            <h4 class="card-title">{{ post_item.theme }}</h4>
+            <p class="card-text">{{ post_item.content|linebreaks }}</p>
+        </div>
+        <div class="card-footer text-muted">
+            {{ post_item.create_date|date:"Y-m-d H:i"}}<br>Автор: {{ post_item.user }}
+        </div>
+
+        <div class="container">
+            {{ form.non_field.errors }}
+            <p><h5>Комментарии:</h5></p>
+            <div class="p-3 mb-2 bg-light text-dark">
+                <p>Всего комментариев: <b>({{ post_item.comments_posts.all.count }})</b></p>
+            </div>
+
+            {% for comment in post_item.comments_posts.all %}
+            <p><b>{{ comment.user }}</b> <i>({{ comment.create_date }})</i><br> {{ comment.text|safe }}</p>
+            {% empty %}
+            <p>Нет комментариев</p>
+            {% endfor %}
+
+            <form action="" method="post">
+                {% if request.user.is_authenticated %}
+                {% csrf_token %}
+                {{ form.text }}<br>
+                <button type="submit" class="btn btn-primary btn-block">Добавить комментарий</button>
+                {% endif %}
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
