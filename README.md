@@ -9,10 +9,10 @@
 
 Представления, основаны на классах (CBV).
 
-Так же добавлены API end-points:
-api/posts
-api/users
-api/users/<id>
+__Так же добавлены API end-points:__
+- api/posts
+- api/users
+- api/users/<id>
 
 
 __Used tools:__    
