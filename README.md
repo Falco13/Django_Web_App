@@ -1,15 +1,15 @@
-# Веб приложение - Django + REST API
+# Web application - Django + REST API
 
-- Реализована модель User с регистрацией.
-- При регистрации у пользователя запрашивается username и пароль. А так же - краткая биография, и дата рождения.
-- Реализована модель Post, любой пользователь может создать пост - с темой поста, описанием и прикрепленной фотографией к нему.
-- На главной странице сайта отображены все созданные посты пользователей по времени публикации.
-- Добавлена возможность комментирования постов (могут комментировать любой авторизованный пользователь) на главной странице + добавлен счетчик комментариев.
-- Суперпользователь (админ) имеет право удалять любой пост и комментарий в Админке, + добавлена возможность скрывать нежелательные комментарии.
+- User model with registration implemented .
+- When a user is registered, the user is prompted for a username and password. And also - a short biography, and date of birth.
+- The Post model is implemented, any user can create a post - with the post topic, description and attached photo to it.
+- The main page of the site displays all created posts of users by the time of publication.
+- Added the ability to comment on posts (any authorized user can comment) on the main page + added a comment counter.
+- The superuser (admin) has the right to delete any post and comment in the Admin-page, + added the ability to hide unwanted comments.
 
-Представления, основаны на классах (CBV).
+Class based views used. (CBV).
 
-__Так же добавлены API end-points:__
+__Also added API end-points:__
 - api/posts
 - api/users
 - api/users/id
