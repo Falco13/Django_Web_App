@@ -1,6 +1,6 @@
 # Web application - Django + REST API
 
-- User model with registration implemented .
+- User model with registration implemented.
 - When a user is registered, the user is prompted for a username and password. And also - a short biography, and date of birth.
 - The Post model is implemented, any user can create a post - with the post topic, description and attached photo to it.
 - The main page of the site displays all created posts of users by the time of publication.
