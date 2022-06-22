@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Регистрация
+Sign Up
 {% endblock %}
 
 
 {% block content %}
 <div class="container">
     {{ form.non_field.errors }}
-    <h1>Регистрация</h1>
+    <h1>Sign Up</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
     </form>
 </div>
 {% endblock %}

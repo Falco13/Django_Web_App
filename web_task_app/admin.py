@@ -28,6 +28,6 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'first_name', 'last_name', 'email', 'bio', 'date_of_birth']
+    list_display = ['username', 'first_name', 'last_name', 'email', 'bio', 'date_of_birth', 'is_superuser']
     list_filter = ['username', 'first_name', 'last_name', 'email', 'date_of_birth']
     search_fields = ['username', 'first_name', 'last_name', 'email']

@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Добавление новости
+Adding news
 {% endblock %}
 
 
 {% block content %}
 <div class="container">
     {{ form.non_field.errors }}
-    <h2>Добавление публикации</h2>
+    <h2>Adding news</h2>
     <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary btn-block">Добавить публикацию</button>
+        <button type="submit" class="btn btn-primary btn-block">Add news</button>
     </form>
 </div>
 {% endblock %}

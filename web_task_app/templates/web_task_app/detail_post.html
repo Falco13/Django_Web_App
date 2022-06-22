@@ -23,27 +23,27 @@
             <p class="card-text">{{ post_item.content|linebreaks }}</p>
         </div>
         <div class="card-footer text-muted">
-            {{ post_item.create_date|date:"Y-m-d H:i"}}<br>Автор: {{ post_item.user }}
+            {{ post_item.create_date|date:"Y-m-d H:i"}}<br>Author: {{ post_item.user }}
         </div>
 
         <div class="container">
             {{ form.non_field.errors }}
-            <p><h5>Комментарии:</h5></p>
+            <p><h5>Comments:</h5></p>
             <div class="p-3 mb-2 bg-light text-dark">
-                <p>Всего комментариев: <b>({{ post_item.comments_posts.all.count }})</b></p>
+                <p>Total comments: <b>({{ post_item.comments_posts.all.count }})</b></p>
             </div>
 
             {% for comment in post_item.comments_posts.all %}
             <p><b>{{ comment.user }}</b> <i>({{ comment.create_date }})</i><br> {{ comment.text|safe }}</p>
             {% empty %}
-            <p>Нет комментариев</p>
+            <p>No comments</p>
             {% endfor %}
 
             <form action="" method="post">
                 {% if request.user.is_authenticated %}
                 {% csrf_token %}
                 {{ form.text }}<br>
-                <button type="submit" class="btn btn-primary btn-block">Добавить комментарий</button>
+                <button type="submit" class="btn btn-primary btn-block">Add comment</button>
                 {% endif %}
             </form>
         </div>

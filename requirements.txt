@@ -1,8 +1,7 @@
-asgiref==3.3.4
-Django==3.2.3
-djangorestframework==3.12.4
-Pillow==8.2.0
-pkg-resources==0.0.0
+asgiref==3.5.2
+Django==4.0.5
+djangorestframework==3.13.1
+Pillow==9.1.1
 pytz==2021.1
 six==1.16.0
 sqlparse==0.4.1

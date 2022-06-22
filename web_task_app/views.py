@@ -14,7 +14,6 @@ from rest_framework import generics
 from . import serializers
 
 
-# home page
 class HomePosts(ListView):
     model = Post
     template_name = 'web_task_app/home.html'
@@ -23,14 +22,13 @@ class HomePosts(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Главная станица'
+        context['title'] = 'Home page'
         return context
 
     def get_queryset(self):
         return Post.objects.filter(active=True)
 
 
-# create Post
 class CreatePost(LoginRequiredMixin, CreateView):
     form_class = PostForm
     template_name = 'web_task_app/add_post.html'
@@ -76,12 +74,11 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # авторизация сразу после регистрации
             login(request, user)
-            messages.success(request, "Вы успешно зарегистрировались!")
+            messages.success(request, "You have successfully registered!")
             return redirect('home')
         else:
-            messages.error(request, "Ошибка регистрации!")
+            messages.error(request, "Registration error!")
     else:
         form = UserRegisterForm()
     return render(request, 'web_task_app/register.html', {'form': form})

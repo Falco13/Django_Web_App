@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import register, user_logout, user_login, HomePosts, CreatePost, ViewPost, AboutView, UserDetail
 
-# url приложения
 urlpatterns = [
     path('', HomePosts.as_view(), name='home'),
     path('register/', register, name='register'),

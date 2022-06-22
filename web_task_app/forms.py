@@ -8,18 +8,18 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(label='username or email', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 
 class UserRegisterForm(UserCreationForm):
-    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    password2 = forms.CharField(label='Подтверждение пароля',
+    username = forms.CharField(label='username', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label='repeat password',
                                 widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    bio = forms.CharField(label='Краткая биография', widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
-    date_of_birth = forms.DateField(label='Дата Рождения', widget=forms.DateInput(attrs={'class': 'form-control'}))
+    bio = forms.CharField(label='short biography', widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
+    date_of_birth = forms.DateField(label='date of birthday', widget=forms.DateInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
@@ -38,7 +38,7 @@ class PostForm(forms.ModelForm):
     def clean_theme(self):
         theme = self.cleaned_data['theme']
         if re.match(r'\d', theme):
-            raise ValidationError('Название не должно начинаться с цифры')
+            raise ValidationError('The title of the theme should not start with a number')
         return theme
 
 

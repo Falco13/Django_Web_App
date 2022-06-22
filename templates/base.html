@@ -21,20 +21,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 {% if request.user.is_authenticated %}
-                <li class="nav-item active"><a class="nav-link" href="{% url 'add_post' %}">Добавить публикацию</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'add_post' %}">Add news</a></li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">О сайте</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
             </ul>
             {% if request.user.is_authenticated %}
-            Добро пожаловать, {{ user.username }}&ensp;<a class="btn btn-warning" href="/logout" type="submit">Выйти</a>
+            Welcome, {{ user.username }}&ensp;<a class="btn btn-warning" href="/logout" type="submit">Logout</a>
             {% else %}
-            <a class="btn btn-warning" href="/login" type="submit">Войти</a>&ensp;
-            <a class="btn btn-danger" href="/register" type="submit">Регистрация</a>
+            <a class="btn btn-warning" href="/login" type="submit">Login</a>&ensp;
+            <a class="btn btn-danger" href="/register" type="submit">Sign Up</a>
             {% endif %}
         </div>
     </div>
